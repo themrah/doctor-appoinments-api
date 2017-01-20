@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+    <appender name="ArragementApiLoggerAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/var/log/mydoctor/appointments/arragement-api.%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyyMMddHHmmssZ}|%msg%n</pattern>
+        </encoder>
+        <append>true</append>
+    </appender>
+
+    <logger name="ArragementApiLogger" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="ArragementApiLoggerAppender"/>
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="ArragementApiLoggerAppender"/>
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</configuration>

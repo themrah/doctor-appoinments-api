@@ -1,0 +1,17 @@
+hikarids:
+  jdbcUrl: jdbc:postgresql://localhost:5432/appointments
+  username: mydoctor
+  password: mydoctor1
+  connectionTimeout: 10000
+  maxPoolSize: 10
+
+server:
+  port: 8083
+  contextPath: /appointments
+
+spring:
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+
